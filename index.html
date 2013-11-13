@@ -1,0 +1,108 @@
+<html>
+<head>
+	<title>Markdown PPT</title>
+	<link rel="stylesheet" href="styles/bootstrap.css">
+	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="styles/transitions.css">
+</head>
+<body>
+	<script type="text/x-handlebars">
+		<div class="container">
+			<div class="navbar navbar-default">
+				<div class="navbar-header">
+					<a class="navbar-brand">Markdown Ppt</a>
+				</div>
+			</div>			
+			{{outlet}}	
+		</div>
+	</script>
+	<script type="text/x-handlebars" id="slides">
+		{{#if isFullScreenEnabled}}
+		<div class="row mvm">
+			<div class="col-md-3">
+				<button class="btn-lg btn-primary" {{action 'goFullScreen'}}>Go Full Screen</button>
+			</div>		
+		</div>
+		{{/if}}
+		
+		{{#unless isFullScreenMode}}
+		<div class="col-md-3 slide-list">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<button class="btn btn-primary" {{action 'addSlide'}}>New Slide</button>
+					<div style="clear:both;"></div>
+				</div>
+				<div class="panel-body">
+					{{#each slide in model}}					
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="btn-group pull-right">
+								<button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">Animate <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a {{action 'animate' slide 'left'}}>From Left</a></li>
+									<li><a {{action 'animate' slide 'right'}}>From Right</a></li>
+									<li><a {{action 'animate' slide 'top'}}>From Top</a></li>
+									<li><a {{action 'animate' slide 'bottom'}}>From Bottom</a></li>
+								</ul>
+							</div>
+							<div style="clear:both;"></div>
+						</div>
+						<div class="panel-body">
+							<div class="text-center">{{#linkTo 'slide' slide}}{{slide.header}}{{/linkTo}}</div>
+							<div class="text-muted"><small>{{summary}}</small></div>
+						</div>
+					</div>
+					{{/each}}				
+				</div>
+			</div>
+		</div>
+		{{/unless}}
+		<div {{bindAttr class="isFullScreenMode::col-md-9"}}>
+			{{outlet}}
+		</div>		
+	</script>	
+	<script type="text/x-handlebars" id="slide">		
+		<div id="ppt-main" class="main">
+			<div {{bindAttr class=slideClasses.current}}>
+				<div {{bindAttr class=":panel :panel-default isFullScreenMode:full-screen"}}>
+					{{#unless isFullScreenMode}}
+					<div class="panel-heading text-center">Slide {{model.number}}
+						{{#if isEditing}}
+						<button class='btn btn-primary pull-right' {{action 'done'}}>Done</button>
+						{{else}}
+						<button class='btn btn-primary pull-right' {{action 'edit'}}>Edit</button>
+						{{/if}}
+						<div style="clear:both;"></div>
+					</div>
+					{{/unless}}
+					<div class="panel-body">
+						{{#if isEditing}}
+						<div class="col-md-6">
+							<div class="form-group">
+								{{input class='text-center form-control' value=model.header}}
+							</div>
+							<div class="form-group">
+								{{textarea rows=20 cols=50 class='form-control' value=model.content}}
+							</div>
+						</div>
+						{{/if}}
+						<div {{bindAttr class="isEditing:col-md-6"}}>
+							<h1 {{bindAttr class=":text-center isFullScreenMode:header-large"}}>{{model.header}}</h1>
+							<div {{bindAttr class="isFullScreenMode:content-large"}}>
+								{{markdown model.content}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+	<script type="text/javascript" src="scripts/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="scripts/handlebars-1.0.0.js"></script>
+	<script type="text/javascript" src="scripts/ember-1.1.2.js"></script>
+	<script type="text/javascript" src="scripts/bootstrap.js"></script>
+	<script type="text/javascript" src="scripts/showdown.js"></script>
+	<script type="text/javascript" src="scripts/script.js"></script>
+</body>
+</html>

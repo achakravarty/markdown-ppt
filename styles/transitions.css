@@ -1,0 +1,129 @@
+.slide-to-left {
+        -webkit-animation: toLeft .6s ease both;
+        -moz-animation: toLeft .6s ease both;
+        animation: toLeft .6s ease both;
+}
+
+.slide-from-left {
+        -webkit-animation: fromLeft .6s ease both;
+        -moz-animation: fromLeft .6s ease both;
+        animation: fromLeft .6s ease both;
+}
+
+.slide-to-right {
+        -webkit-animation: toRight .6s ease both;
+        -moz-animation: toRight .6s ease both;
+        animation: toRight .6s ease both;
+}
+
+.slide-from-right {
+        -webkit-animation: fromRight .6s ease both;
+        -moz-animation: fromRight .6s ease both;
+        animation: fromRight .6s ease both;
+}
+
+.slide-to-top {
+        -webkit-animation: toTop .6s ease both;
+        -moz-animation: toTop .6s ease both;
+        animation: toTop .6s ease both;
+}
+
+.slide-from-top {
+        -webkit-animation: fromTop .6s ease both;
+        -moz-animation: fromTop .6s ease both;
+        animation: fromTop .6s ease both;
+}
+
+.slide-to-bottom {
+        -webkit-animation: toBottom .6s ease both;
+        -moz-animation: toBottom .6s ease both;
+        animation: toBottom .6s ease both;
+}
+
+.slide-from-bottom {
+        -webkit-animation: fromBottom .6s ease both;
+        -moz-animation: fromBottom .6s ease both;
+        animation: fromBottom .6s ease both;
+}
+
+/********************************* keyframes **************************************/
+
+@-webkit-keyframes toLeft {
+        to { -webkit-transform: translateX(-100%); }
+}
+@-moz-keyframes toLeft {
+        to { -moz-transform: translateX(-100%); }
+}
+@keyframes toLeft {
+        to { transform: translateX(-100%); }
+}
+
+@-webkit-keyframes fromLeft {
+        from { -webkit-transform: translateX(-100%); }
+}
+@-moz-keyframes fromLeft {
+        from { -moz-transform: translateX(-100%); }
+}
+@keyframes fromLeft {
+        from { transform: translateX(-100%); }
+}
+
+@-webkit-keyframes toRight { 
+        to { -webkit-transform: translateX(100%); }
+}
+@-moz-keyframes toRight { 
+        to { -moz-transform: translateX(100%); }
+}
+@keyframes toRight { 
+        to { transform: translateX(100%); }
+}
+
+@-webkit-keyframes fromRight {
+        from { -webkit-transform: translateX(100%); }
+}
+@-moz-keyframes fromRight {
+        from { -moz-transform: translateX(100%); }
+}
+@keyframes fromRight {
+        from { transform: translateX(100%); }
+}
+
+@-webkit-keyframes toTop {
+        to { -webkit-transform: translateY(-100%); }
+}
+@-moz-keyframes toTop {
+        to { -moz-transform: translateY(-100%); }
+}
+@keyframes toTop {
+        to { transform: translateY(-100%); }
+}
+
+@-webkit-keyframes fromTop {
+        from { -webkit-transform: translateY(-100%); }
+}
+@-moz-keyframes fromTop {
+        from { -moz-transform: translateY(-100%); }
+}
+@keyframes fromTop {
+        from { transform: translateY(-100%); }
+}
+
+@-webkit-keyframes toBottom {
+        to { -webkit-transform: translateY(100%); }
+}
+@-moz-keyframes toBottom {
+        to { -moz-transform: translateY(100%); }
+}
+@keyframes toBottom {
+        to { transform: translateY(100%); }
+}
+
+@-webkit-keyframes fromBottom {
+        from { -webkit-transform: translateY(100%); }
+}
+@-moz-keyframes fromBottom {
+        from { -moz-transform: translateY(100%); }
+}
+@keyframes fromBottom {
+        from { transform: translateY(100%); }
+}
